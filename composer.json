@@ -1,0 +1,21 @@
+{
+    "require": {
+        "nikic/fast-route": "dev-master",
+        "envms/fluentpdo": "dev-master",
+        "twig/twig": "^3.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/nikic/FastRoute"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/envms/fluentpdo"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/twigphp/Twig"
+        }
+    ]
+}
