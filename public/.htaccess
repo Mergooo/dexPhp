@@ -1,0 +1,1 @@
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]  # Leitet Anfragen um, setzt Pfad als Query-String, behält bestehende Queries

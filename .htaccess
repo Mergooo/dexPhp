@@ -1,0 +1,6 @@
+# URL-Umschreibung einschalten
+RewriteEngine On
+# Prueft ob Request nicht mit /public/ beginnt
+RewriteCond %{REQUEST_URI} !^/public/
+# Umschreibt alle Requests die nicht mit /public/ beginnen
+RewriteRule ^(.*)$ /public/$1 [L]
