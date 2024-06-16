@@ -1,1 +1,7 @@
-RewriteRule ^(.*)$ index.php?$1 [L,QSA]  # Leitet Anfragen um, setzt Pfad als Query-String, behält bestehende Queries
+RewriteEngine On
+
+# すべてのリクエストを index.php にリダイレクトし、クエリ文字列として渡す
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?path=$1 [L,QSA]
+

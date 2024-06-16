@@ -1,6 +1,8 @@
-# URL-Umschreibung einschalten
+# URLリライトエンジンを有効にする
 RewriteEngine On
-# Prueft ob Request nicht mit /public/ beginnt
+
+# リクエストURIが /public で始まらない場合
 RewriteCond %{REQUEST_URI} !^/public/
-# Umschreibt alle Requests die nicht mit /public/ beginnen
+
+# すべてのリクエストを /public フォルダにリライトする
 RewriteRule ^(.*)$ /public/$1 [L]
