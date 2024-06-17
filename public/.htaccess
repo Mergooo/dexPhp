@@ -1,7 +1,5 @@
 RewriteEngine On
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
 
-# すべてのリクエストを index.php にリダイレクトし、クエリ文字列として渡す
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?path=$1 [L,QSA]
+
 

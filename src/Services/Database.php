@@ -7,18 +7,24 @@ use PDO;
 
 require_once __DIR__ . '/../config.php';
 
-class Database
-{
+class Database {
     private Query $fluent;
 
-    public function __construct()
-    {
-        $pdo = new PDO('mysql:dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+    public function __construct() {
+        $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+        $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
         $this->fluent = new Query($pdo);
     }
 
-    public function getFluent()
-    {
+    public static function getInstance(): PDO {
+        if (self::$instance === null) {
+            $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+            self::$instance = new PDO($dsn, DB_USER, DB_PASSWORD);
+        }
+        return self::$instance;
+    }
+
+    public function getFluent() {
         return $this->fluent;
     }
 }

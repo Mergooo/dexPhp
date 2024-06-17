@@ -1,8 +1,4 @@
-# URLリライトエンジンを有効にする
 RewriteEngine On
-
-# リクエストURIが /public で始まらない場合
 RewriteCond %{REQUEST_URI} !^/public/
-
-# すべてのリクエストを /public フォルダにリライトする
 RewriteRule ^(.*)$ /public/$1 [L]
+

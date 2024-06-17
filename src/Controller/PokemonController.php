@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Model\Pokemon_model;
+use App\Model\PokemonModel;
 
 class PokemonController extends BaseController
 {
-    private Pokemon_model $model;
+    private PokemonModel $model;
 
     public function __construct()
     {
