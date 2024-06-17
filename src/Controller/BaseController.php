@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class BaseController
+abstract class BaseController
 {
     // Path zum View-Verzeichnis
     protected string $viewsPath = __DIR__ . '/../View/';

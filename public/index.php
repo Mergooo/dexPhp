@@ -8,26 +8,21 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $route) {
     $route->addRoute('GET', '/dexPhp/', 'App\Controller\HomeController::index');
     $route->addRoute('GET', '/dexPhp/pokemon', 'App\Controller\PokemonController::index');
+    $route->addRoute('GET', '/dexPhp/trainer', 'App\Controller\TrainerController::index'); // 追加
     // 他のルートもここに追加
 });
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 
-echo 'HTTP Method: ' . $httpMethod . '<br>';
-echo 'Original URI: ' . $uri . '<br>';
 
 if (false !== $pos = strpos($uri, '?')) {
     $uri = substr($uri, 0, $pos);
 }
 $uri = rawurldecode($uri);
 
-echo 'Processed URI: ' . $uri . '<br>';
 
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 
-echo '<pre>';
-print_r($routeInfo);
-echo '</pre>';
 
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
