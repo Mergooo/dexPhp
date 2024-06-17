@@ -10,6 +10,7 @@ if (is_array($pokemon)) {
         echo "<p>Nummer: " . htmlspecialchars($poke_1['id']) . "</p>";
         echo "<p>Name: " . htmlspecialchars($poke_1['name']) . "</p>";
         echo "<p>Typ: " . htmlspecialchars($poke_1['element']) . "</p>";
+        echo "<br>";
     }
 } else {
     echo "<p>Aktuell keine pokemon vorhanden </p>";

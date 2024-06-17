@@ -9,7 +9,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $rout
     $route->addRoute('GET', '/dexPhp/', 'App\Controller\HomeController::index');
     $route->addRoute('GET', '/dexPhp/pokemon', 'App\Controller\PokemonController::index');
     $route->addRoute('GET', '/dexPhp/trainer', 'App\Controller\TrainerController::index'); // 追加
-    // 他のルートもここに追加
 });
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];

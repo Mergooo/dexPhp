@@ -8,7 +8,10 @@ use PDO;
 class TrainerModel implements ModelInterface {
     public function findAll(): array {
         $db = Database::getInstance();
-        $stmt = $db->query("SELECT * FROM trainer");
+        $stmt = $db->query(" SELECT t.id AS trainer_id, t.name AS trainer_name, p.name AS pokemon_name
+            FROM trainer AS t
+            LEFT JOIN pokemon AS p ON t.pokemon_id = p.id
+        ");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
