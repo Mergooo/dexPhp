@@ -10,12 +10,12 @@ class PokemonController extends BaseController
 
     public function __construct()
     {
-        $this->model = new Pokemon_model();
+        $this->model = new PokemonModel();
     }
 
     public function index()
     {
-        $jobs = $this->model->findAll();
+        $pokemon = $this->model->findAll();
 
         parent::loadView('index', 'pokemon', ['pokemon' => $pokemon]);
     }

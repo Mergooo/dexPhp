@@ -9,6 +9,7 @@ require_once __DIR__ . '/../config.php';
 
 class Database {
     private Query $fluent;
+    private static $instance = null; 
 
     public function __construct() {
         $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME;

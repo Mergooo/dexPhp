@@ -7,11 +7,9 @@ echo "pokemon - index seite";
 
 if (is_array($pokemon)) {
     foreach ($pokemon as $poke_1) {
-        echo "<p>Titel: " . htmlspecialchars($poke_1['name']) . "</p>";
-//        echo "<p>Beschreibung: " . htmlspecialchars($job['beschreibung']) . "</p>";
-        echo '<a href="/pokemon/' . htmlspecialchars($poke_1['id']) . '">Details</a> ';
-        echo '<a href="/pokemon/' . htmlspecialchars($poke_1['id']) . '/edit">Bearbeiten</a> ';
-        echo '<a href="/pokemon/' . htmlspecialchars($poke_1['id']) . '/delete">Löschen</a>';
+        echo "<p>Nummer: " . htmlspecialchars($poke_1['id']) . "</p>";
+        echo "<p>Name: " . htmlspecialchars($poke_1['name']) . "</p>";
+        echo "<p>Typ: " . htmlspecialchars($poke_1['element']) . "</p>";
     }
 } else {
     echo "<p>Aktuell keine pokemon vorhanden </p>";
