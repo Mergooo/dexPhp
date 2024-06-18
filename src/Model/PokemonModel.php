@@ -17,5 +17,6 @@ class PokemonModel implements ModelInterface {
         $stmt = $db->prepare("SELECT * FROM pokemon WHERE id = :id");
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+        
     }
 }

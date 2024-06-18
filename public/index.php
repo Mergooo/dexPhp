@@ -9,6 +9,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $rout
     $route->addRoute('GET', '/dexPhp/', 'App\Controller\HomeController::index');
     $route->addRoute('GET', '/dexPhp/pokemon', 'App\Controller\PokemonController::index');
     $route->addRoute('GET', '/dexPhp/trainer', 'App\Controller\TrainerController::index'); // 追加
+    $route->addRoute('GET', '/dexPhp/trainer/add', 'App\Controller\TrainerController::add'); // 追加フォームの表示
+    $route->addRoute('POST', '/dexPhp/trainer/add', 'App\Controller\TrainerController::create'); // フォーム送信の処理
+    $route->addRoute('GET', '/dexPhp/trainer/{id}/edit', 'App\Controller\TrainerController::edit'); // 編集フォームの表示
+    $route->addRoute('POST', '/dexPhp/trainer/{id}/update', 'App\Controller\TrainerController::update'); // フォーム送信の処理
 });
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];

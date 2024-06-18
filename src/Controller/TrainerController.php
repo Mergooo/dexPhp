@@ -19,4 +19,31 @@ class TrainerController extends BaseController
 
         parent::loadView('index', 'trainer', ['trainer' => $trainer]);
     }
+
+    public function add() {
+        parent::loadView('trainer_add', 'trainer'); // 追加フォームの表示
+    }
+
+    public function create() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = htmlspecialchars($_POST['name']);
+            $pokemon_id = htmlspecialchars($_POST['pokemon_id']);
+            
+            $trainerModel = new TrainerModel();
+            $trainerModel->create($name, $pokemon_id);
+            
+            header('Location: /dexPhp/trainer');
+            exit;
+        }
+}
+
+    public function edit($id) {
+        $trainerModel = new TrainerModel();
+        $trainer = $trainerModel->findById($id);
+        if ($trainer) {
+            parent::loadView('trainer_edit','trainer', ['trainer' => $trainer]);
+        } else {
+            echo "Trainer not found.";
+        }
+}
 }

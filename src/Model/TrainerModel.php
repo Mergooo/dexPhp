@@ -21,4 +21,9 @@ class TrainerModel implements ModelInterface {
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function create($name, $pokemon_id): void {
+        $db = Database::getInstance();
+        $stmt = $db->prepare("INSERT INTO trainer (name, pokemon_id) VALUES (:name, :pokemon_id)");
+        $stmt->execute(['name' => $name, 'pokemon_id' => $pokemon_id]);
+    }
 }

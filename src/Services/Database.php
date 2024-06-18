@@ -28,4 +28,5 @@ class Database {
     public function getFluent() {
         return $this->fluent;
     }
+    # singleton pattern einfügen
 }

@@ -7,6 +7,7 @@ abstract class BaseController
     // Path zum View-Verzeichnis
     protected string $viewsPath = __DIR__ . '/../View/';
 
+
     // Methode zum Laden einer View, kann auch in einem Unterverzeichnis liegen
     public function loadView($viewName, $subDir = '', $data = []): void
     {
