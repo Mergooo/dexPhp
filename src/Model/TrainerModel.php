@@ -34,6 +34,11 @@ class TrainerModel implements ModelInterface {
         $stmt->execute(['name' => $name, 'pokemon_id' => $pokemon_id, 'id' => $id]);
     }
 
-
+    public function delete($id)
+    {
+        $db = Database::getInstance();
+        $stmt= $db->prepare("DELETE FROM trainer WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+    }
 }
 

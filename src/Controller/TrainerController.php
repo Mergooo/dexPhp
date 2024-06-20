@@ -49,11 +49,35 @@ class TrainerController extends BaseController
 
 public function update($id)
 {
-    $name = $_POST['name'];
-    $pokemon_id = $_POST['pokemon_id'];
-    $this->model->update($id, $name, $pokemon_id);
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = htmlspecialchars($_POST['name']);
+        $pokemon_id = htmlspecialchars($_POST['pokemon_id']);
+        $this->model->update($id, $name, $pokemon_id);
 
-    header('Location: /dexPhp/trainer');
-    exit;
+        header('Location: /dexPhp/trainer');
+        exit;
+    }
+
+    // If not a POST request, load the edit form
+    $trainer = $this->model->findById($id);
+    if ($trainer) {
+        parent::loadView('edit', 'trainer', ['trainer' => $trainer]);
+    } else {
+        echo "Trainer not found.";
+    }
+
+}
+
+public function delete($id)
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $this->model->delete($id);
+
+        header('Location: /dexPhp/trainer');
+        exit;
+    }
+
+    echo "Invalid request method.";
 }
 }
+
