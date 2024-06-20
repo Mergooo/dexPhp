@@ -46,4 +46,14 @@ class TrainerController extends BaseController
             echo "Trainer not found.";
         }
 }
+
+public function update($id)
+{
+    $name = $_POST['name'];
+    $pokemon_id = $_POST['pokemon_id'];
+    $this->model->update($id, $name, $pokemon_id);
+
+    header('Location: /dexPhp/trainer');
+    exit;
+}
 }
