@@ -29,8 +29,9 @@ class TrainerModel implements ModelInterface {
 
     public function update($id, $name, $pokemon_id)
     {
-        $stmt = $this->db->prepare("UPDATE trainer SET name = :name, pokemon_id = :pokemon_id WHERE id = :id");
-        $stmt->execute(['name' => $name, 'pokemon_id' => $pokemon_id]);
+        $db = Database::getInstance();
+        $stmt = $db->prepare("UPDATE trainer SET name = :name, pokemon_id = :pokemon_id WHERE id = :id");
+        $stmt->execute(['name' => $name, 'pokemon_id' => $pokemon_id, 'id' => $id]);
     }
 
 
