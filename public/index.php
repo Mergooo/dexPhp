@@ -17,6 +17,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $rout
     $route->addRoute('GET', '/dexPhp/trainer/{id}/edit', 'App\Controller\TrainerController::edit'); // 編集フォームの表示
     $route->addRoute('POST', '/dexPhp/trainer/{id}/update', 'App\Controller\TrainerController::update'); // フォーム送信の処理
     $route->addRoute('POST', '/dexPhp/trainer/{id}/delete', 'App\Controller\TrainerController::delete'); // フォーム送信の処理
+    $route->addRoute('GET', '/dexPhp/pokemon/{name}/entry', 'App\Controller\PokemonController::showPokedexEntry');
 });
 // Get the HTTP method and URI from the request
 $httpMethod = $_SERVER['REQUEST_METHOD'];

@@ -3,15 +3,17 @@
 namespace App\Controller;
 
 use App\Model\PokemonModel;
+use App\Services\PokedexService;
 
 class PokemonController extends BaseController
 {
     private PokemonModel $model;
-
+    private PokedexService $pokedexService;
     // Constructor to initialize the PokemonModel
     public function __construct()
     {
         $this->model = new PokemonModel();
+        $this->pokedexService = new PokedexService();
     }
 
     // Method to display the list of all Pokemon
@@ -23,9 +25,10 @@ class PokemonController extends BaseController
         parent::loadView('index', 'pokemon', ['pokemon' => $pokemon]);
     }
 
-    
-    # nächstes:
-    # create zeigt formular für create an (CRUD), dass man neuen trainer hinzufügt
-    # store ist dafür zuständig dass sachen in die daten in die db geschrieben werden
+    public function showPokedexEntry($name)
+    {
+        $entry = $this->pokedexService->generatePokedexEntry($name);
+        parent::loadView('pokedex_entry', 'pokemon', ['entry' => $entry]);
+    }
  
 }
