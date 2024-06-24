@@ -3,21 +3,25 @@
 namespace App\Controller;
 
 use App\Model\TrainerModel;
+use Twig\Environment;
 
 class TrainerController extends BaseController
 {
     private TrainerModel $model;
+    private Environment $twig;
 
     public function __construct()
     {
         $this->model = new TrainerModel();
+        $this->twig = $twig;
     }
 
     public function index()
     {
         $trainer = $this->model->findAll();
 
-        parent::loadView('index', 'trainer', ['trainer' => $trainer]);
+        //parent::loadView('index', 'trainer', ['trainer' => $trainer]);
+        echo $this->twig->render('trainer/index.html.twig', ['trainer' => $trainer]);
     }
 
     public function add() {

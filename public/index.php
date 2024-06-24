@@ -7,6 +7,11 @@ ini_set('display_errors', 1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+
+// Set up Twig
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../src/View');
+$twig = new \Twig\Environment($loader);
+
 // Set up routing using FastRoute
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $route) {
     $route->addRoute('GET', '/dexPhp/', 'App\Controller\HomeController::index');
