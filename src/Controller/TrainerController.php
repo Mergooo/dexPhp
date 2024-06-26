@@ -46,7 +46,7 @@ class TrainerController extends BaseController
         $trainerModel = new TrainerModel();
         $trainer = $trainerModel->findById($id);
         if ($trainer) {
-            parent::loadView('trainer_edit','trainer', ['trainer' => $trainer]);
+            echo $this->twig->render('trainer/trainer_edit.html.twig', ['trainer' => $trainer]);    
         } else {
             echo "Trainer not found.";
         }

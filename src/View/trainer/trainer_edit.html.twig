@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>Edit Trainer</h1>
-    <form action="/dexPhp/trainer/<?= htmlspecialchars($trainer['id']) ?>/update" method="post">
+    <form action="/dexPhp/trainer/{{ trainer.id }}/update" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<?= htmlspecialchars($trainer['name']) ?>" required>
+        <input type="text" id="name" name="name" value="{{ trainer.name|e }}" required>
         <br>
         <label for="pokemon_id">Pokemon ID:</label>
-        <input type="number" id="pokemon_id" name="pokemon_id" value="<?= htmlspecialchars($trainer['pokemon_id']) ?>" required>
+        <input type="number" id="pokemon_id" name="pokemon_id" value="{{ trainer.pokemon_id|e }}" required>
         <br>
         <button type="submit">Update Trainer</button>
     </form>

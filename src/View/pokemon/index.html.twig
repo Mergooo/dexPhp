@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon List</title>
+</head>
+<body>
+    <h1>Pokemon List</h1>
+    {% for poke_1 in pokemon %}
+        <p>Nummer: {{ poke_1.id }}</p>
+        <p>Name: {{ poke_1.pokename }}</p>
+        <p>Typ: {{ poke_1.element }}</p>
+        <a href="/dexPhp/pokemon/{{ poke_1.pokename }}/entry">Get Pokedex Entry</a>
+        <br>
+    {% else %}
+        <p>No pokemon available.</p>
+    {% endfor %}
+</body>
+</html>
