@@ -10,7 +10,7 @@ class TrainerController extends BaseController
     private TrainerModel $model;
     private Environment $twig;
 
-    public function __construct()
+    public function __construct(Environment $twig)
     {
         $this->model = new TrainerModel();
         $this->twig = $twig;
@@ -21,8 +21,9 @@ class TrainerController extends BaseController
         $trainer = $this->model->findAll();
 
         //parent::loadView('index', 'trainer', ['trainer' => $trainer]);
-        echo $this->twig->render('trainer/index.html.twig', ['trainer' => $trainer]);
-    }
+        
+        echo $this->twig->render('trainer/index.html.twig', ['trainer' => $trainer]);    }
+
 
     public function add() {
         parent::loadView('trainer_add', 'trainer'); // 追加フォームの表示

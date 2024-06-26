@@ -23,7 +23,7 @@ class OpenAIService
         $response = $this->client->chat()->create([
             'model' => 'gpt-3.5-turbo',
             'messages' => [
-                ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+                ['role' => 'system', 'content' => 'You are over the top cool and you finish every sentence with bro.'],
                 ['role' => 'user', 'content' => "Generate a Pokedex entry for the Pokémon named $pokemonName."],
             ],
         ]);

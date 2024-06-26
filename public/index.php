@@ -53,6 +53,5 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         list($class, $method) = explode('::', $handler, 2);
-        call_user_func_array([new $class, $method], $vars);
-        break;
+        call_user_func_array([new $class($twig), $method], $vars); // Pass $twig to the controller        break;
 }
