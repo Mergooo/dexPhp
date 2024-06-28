@@ -4,18 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trainer List</title>
-</head>
+  <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 3em;
+            color: #FF00FF;
+            text-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00FF41, 0 0 40px #00FF41;
+        }
+
+        .trainer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00FF41;
+            border-radius: 15px;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .trainer-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #00FF41, 0 0 30px #00FF41;
+        }
+
+        .edit-button, .delete-button {
+            background: none;
+            border: 2px solid #FF00FF;
+            color: #FF00FF;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .edit-button:hover, .delete-button:hover {
+            background: #FF00FF;
+            color: #121212;
+        }
+
+        .delete-button {
+            border-color: #00FFFF;
+            color: #00FFFF;
+        }
+
+        .delete-button:hover {
+            background: #00FFFF;
+            color: #121212;
+        }
+    </style>
 <body>
     <h1>Trainer List</h1>
     {% for trainer in trainer %}
-        <p>Nummer: {{ trainer.trainer_id }}</p>
-        <p>Trainer Name: {{ trainer.trainer_name }}</p>
-        <p>Starterpokemon: {{ trainer.pokemon_name }}</p>
-        <a href="/dexPhp/trainer/{{ trainer.trainer_id }}/edit">Edit</a>
-        <form action="/dexPhp/trainer/{{ trainer.trainer_id }}/delete" method="POST" style="display:inline;">
-            <button type="submit">Delete</button>
-        </form>
-        <br>
+        <div class="trainer-card">
+            <p>Nummer: {{ trainer.trainer_id }}</p>
+            <p>Trainer Name: {{ trainer.trainer_name }}</p>
+            <p>Starterpokemon: {{ trainer.pokemon_name }}</p>
+            <a href="/dexPhp/trainer/{{ trainer.trainer_id }}/edit" class="edit-button">Edit</a>
+            <form action="/dexPhp/trainer/{{ trainer.trainer_id }}/delete" method="POST" style="display:inline;">
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </div>
     {% else %}
         <p>No trainers available.</p>
     {% endfor %}
