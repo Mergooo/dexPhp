@@ -74,7 +74,9 @@ body {
     <div class="container">
         {% for poke_1 in pokemon %}
             <div class="pokemon-card">
-                <div class="pokemon-image"></div>
+                <div class="pokemon-image">
+                  <img src="{{ poke_1.image }}" alt="{{ poke_1.pokename }}">
+                </div>
                 <div class="pokemon-details">
                     <p>Nummer: {{ poke_1.id }}</p>
                     <p>Name: {{ poke_1.pokename }}</p>
@@ -83,6 +85,12 @@ body {
                     <a href="/dexPhp/pokemon/{{ poke_1.pokename }}/entry" class="pokedex-link">Pokedexentry</a>
                 </div>
             </div>
+             {% if poke_1.image is defined and poke_1.image is not empty %}
+                    <p>Image for {{ poke_1.pokename }}: {{ poke_1.image }}</p>
+                {% else %}
+                    <p>Error: Image for {{ poke_1.pokename }} not found</p>
+                {% endif %}
+        <p>bild: {{ poke_1.image }}</p>
         {% else %}
             <p>No pokemon available.</p>
         {% endfor %}

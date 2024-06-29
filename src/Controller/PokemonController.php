@@ -25,6 +25,10 @@ class PokemonController extends BaseController
     {
         $pokemon = $this->model->findAll();
 
+        foreach ($pokemon as &$poke_1) {
+            $poke_1['image'] = '/dexPhp/public/pics/1920x1080/'.$poke_1['id'].strtolower($poke_1['pokename']).'1920x1080.jpg';
+        }
+
         // Load the view and pass the Pokemon data
         echo $this->twig->render('pokemon/index.html.twig', ['pokemon' => $pokemon]);
     }
