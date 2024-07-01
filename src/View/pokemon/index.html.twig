@@ -4,70 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon List</title>
+    <link rel="stylesheet" href="/dexPhp/public/css/style.css">
 
 
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffccff;
-    color: #333;
-    text-align: center;
-    padding: 20px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.pokemon-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #4ab7a4;
-    color: white; 
-    border-radius: 10px;
-    width: 80%;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.pokemon-image {
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
-}
-
-.pokemon-details {
-    flex: 1;
-    text-align: left;
-}
-
-.pokemon-details p {
-    margin: 5px 0;
-}
-
-.detail-link, .pokedex-link {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.detail-link:hover, .pokedex-link:hover {
-    background-color: #0056b3;
-}
-
-</style>
 </head>
 <body>
     <h1>Pokemon List</h1>
@@ -85,12 +24,7 @@ body {
                     <a href="/dexPhp/pokemon/{{ poke_1.pokename }}/entry" class="pokedex-link">Pokedexentry</a>
                 </div>
             </div>
-             {% if poke_1.image is defined and poke_1.image is not empty %}
-                    <p>Image for {{ poke_1.pokename }}: {{ poke_1.image }}</p>
-                {% else %}
-                    <p>Error: Image for {{ poke_1.pokename }} not found</p>
-                {% endif %}
-        <p>bild: {{ poke_1.image }}</p>
+    
         {% else %}
             <p>No pokemon available.</p>
         {% endfor %}

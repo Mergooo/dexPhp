@@ -1,4 +1,9 @@
 RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/dexPhp/public/pics/
+RewriteCond %{REQUEST_URI} !^/dexPhp/public/css/
+
 RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+
 
 
